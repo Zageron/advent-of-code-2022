@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "zerotaskx.rust-extension-pack",
+        "rust-lang.rust-analyzer",
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint",
+        "codezombiech.gitignore"
+    ]
+}

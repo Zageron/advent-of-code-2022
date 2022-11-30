@@ -1,0 +1,36 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Watch - Native",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"make",
+				"watch"
+			],
+			"problemMatcher": [
+				"$rustc"
+			],
+			"runOptions": {
+				"runOn": "folderOpen"
+			}
+		},
+		{
+			"label": "Build",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"make",
+				"build"
+			],
+			"problemMatcher": [
+				"$rustc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+		},
+	]
+}
