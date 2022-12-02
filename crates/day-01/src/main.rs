@@ -8,7 +8,6 @@ fn main() -> std::io::Result<()> {
     const FILE_NAME: &str = "data/day-01/input";
 
     let mut elf_calories = ElfCalories::default();
-    let mut most_loaded_elf = 0;
 
     if let Ok(file) = File::open(FILE_NAME) {
         let reader = BufReader::new(file);
@@ -18,9 +17,6 @@ fn main() -> std::io::Result<()> {
             if let Ok(line) = line {
                 if line.is_empty() {
                     elf_calories.0.push(current_elf);
-                    if current_elf > most_loaded_elf {
-                        most_loaded_elf = current_elf;
-                    }
                     current_elf = 0;
                 } else {
                     current_elf += line.parse::<u64>().unwrap();
@@ -31,6 +27,17 @@ fn main() -> std::io::Result<()> {
         println!("Unable to load file {FILE_NAME}")
     }
 
-    println!("{most_loaded_elf}");
+    elf_calories
+        .0
+        .sort_unstable_by(|a, b| b.partial_cmp(a).unwrap());
+    let mut itr = elf_calories.0.iter();
+
+    let top_elf = itr.next().unwrap();
+    println!("Top Elf: {:?}", top_elf);
+
+    println!(
+        "Top Three Sum: {:?}",
+        top_elf + itr.next().unwrap() + itr.next().unwrap()
+    );
     Ok(())
 }
