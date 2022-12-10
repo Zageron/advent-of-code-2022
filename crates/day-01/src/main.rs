@@ -33,7 +33,7 @@ fn main() -> std::io::Result<()> {
     let mut itr = elf_calories.0.iter();
 
     let top_elf = itr.next().unwrap();
-    println!("Top Elf: {:?}", top_elf);
+    println!("Top Elf: {top_elf:?}");
 
     println!(
         "Top Three Sum: {:?}",
